@@ -1,0 +1,19 @@
+ENTITIES:
+RendezVous(id, date:string, etat:EtatRendezVous)
+Patient(numPatient:string, nomComplet:string)
+Prestation(type: TypePrestation)
+
+ENUMERATIONS:
+TypePrestation(analyse, radio)
+EtatRendezVous(Encours, annuler)
+
+RELATIONSHIPS:
+Consultation(medecin:string, medicament:ArrayList<string>)
+Patient ---- RendezVous
+
+CONSTRAINTS:
+RendezVous.date: non null
+RendezVous.etat: non null
+Patient.numPatient: primary key, non null
+Prestation.type: primary key, non null
+Consultation.medecin: non null
